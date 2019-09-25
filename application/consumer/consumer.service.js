@@ -1,24 +1,6 @@
-exports.findConsumerServiceById = (id) => {
-    try {
-        return ({
-            status: 200,
-            data: id,
-        });
-    } catch (e) {
-        return ({
-            status: 400,
-            data: id,
-        });
-    }
-};
-
-//
-//
-//
-/*
-
 exports.findConsumerServiceById = (id) => new Promise(((resolve, reject) => {
     try {
+        // uncomment below to simulate reject
         console.log(new Date(x + y));
         resolve({
             status: 200,
@@ -29,4 +11,3 @@ exports.findConsumerServiceById = (id) => new Promise(((resolve, reject) => {
     }
 }));
 
-*/

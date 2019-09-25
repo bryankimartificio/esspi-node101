@@ -1,24 +1,9 @@
 
-/*
 const ConsumerService = require('./consumer.service');
 
 exports.findConsumerController = (req, res) => {
-    res.status(200)
-        .send('My Data');
-};
-*/
-//
-//
-//
-//
-//
-//
-
-const ConsumerService = require('./consumer.service');
-
-exports.findConsumerController = (req, res) => {
-    const id = 25;
-    ConsumerService.findConsumerServiceById(id)
+    const consumerId = req.params.consumerid;
+    ConsumerService.findConsumerServiceById(consumerId)
         .then((consumer) => {
             if (consumer.status === 200) {
                 res
@@ -32,5 +17,8 @@ exports.findConsumerController = (req, res) => {
         })
         .catch((error) => {
             console.log(error);
+            res
+                .status(400)
+                .send('Internal Server error');
         });
 };
