@@ -66,5 +66,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // x-www-form-urlencoded 
 app.post('/v1/consumer/', (req, res) => res.status(200).send(`Username: ${req.body.username}`));
 */
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* ---------------ROUTE-----------------*/
+require('./application/consumer/consumer.route')(app);
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
