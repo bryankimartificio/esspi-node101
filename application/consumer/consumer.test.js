@@ -1,7 +1,7 @@
 const Assert = require('chai').assert;
 const Validation = require('./consumer.validation');
 // 3A
-// Arrange, Assing, Assert
+// Arrange, Assign, Assert
 
 // eslint-disable-next-line no-undef
 describe('Consumer - Unit testing', async () => {

@@ -4,7 +4,8 @@
   "description": "nodejs 101",
   "main": "app.js",
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha application/**/*.test.js"
+    "test": "node node_modules/mocha/bin/mocha application/**/*.test.js",
+    "play": "node app.js"
   },
   "author": "Bryan Kim Artificio",
   "license": "ISC",
