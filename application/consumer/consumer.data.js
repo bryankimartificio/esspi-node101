@@ -34,3 +34,34 @@ exports.createConsumerData = (consumerData) => new Promise(((resolve, reject) =>
         });
     }
 }));
+
+
+exports.findConsumerDataById = (consumerId) => new Promise(((resolve, reject) => {
+    try {
+       
+        ConsumerModel.findById(consumerId)
+            .then((consumer) => {
+                if (!consumer) {
+                    resolve({
+                        statuscode: 404,
+                        data: 'Failed Saving: Failed to save new record.',
+                    });
+                }
+                resolve({
+                    statuscode: 200,
+                    data: JSON.parse(JSON.stringify(consumer)),
+                });
+            }).catch((err) => {
+                resolve({
+                    statuscode: 500,
+                    data: `Catch Exception: Error creating record  - ${err}`,
+                });
+            });
+    } catch (err) {
+        resolve({
+            statuscode: 500,
+            data: `Internal Server Error: ${err}`,
+        });
+    }
+}));
+

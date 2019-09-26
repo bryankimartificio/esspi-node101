@@ -1,12 +1,10 @@
 const ConsumerData = require('./consumer.data');
 
-exports.findConsumerServiceById = (id) => new Promise(((resolve, reject) => {
+exports.findConsumerServiceById = (req) => new Promise(((resolve, reject) => {
+    const consumerId = req.params.consumerid;
     try {
-        // uncomment below to simulate reject
-        // console.log(new Date(x + y));
-        resolve({
-            status: 200,
-            data: id,
+        ConsumerData.findConsumerDataById(consumerId).then((consumer) => {
+            resolve(consumer);
         });
     } catch (e) {
         reject(e);

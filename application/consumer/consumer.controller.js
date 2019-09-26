@@ -2,8 +2,8 @@
 const ConsumerService = require('./consumer.service');
 
 exports.findConsumerController = (req, res) => {
-    const consumerId = req.params.consumerid;
-    ConsumerService.findConsumerServiceById(consumerId)
+
+    ConsumerService.findConsumerServiceById(req)
         .then((consumer) => {
             if (consumer.status === 200) {
                 res
