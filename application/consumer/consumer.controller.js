@@ -22,3 +22,26 @@ exports.findConsumerController = (req, res) => {
                 .send('Internal Server error');
         });
 };
+
+
+exports.createConsumerController = (req, res) => {
+    console.log(req.body);
+    ConsumerService.createConsumerService(req)
+        .then((consumer) => {
+            if (consumer.status === 200) {
+                res
+                    .status(200)
+                    .send(consumer);
+            } else {
+                res
+                    .status(400)
+                    .send(consumer);
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            res
+                .status(400)
+                .send('Internal Server error');
+        });
+};
