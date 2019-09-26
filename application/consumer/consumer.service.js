@@ -1,4 +1,5 @@
 const ConsumerData = require('./consumer.data');
+const Validation = require('./consumer.validation');
 
 exports.findConsumerServiceById = (id) => new Promise(((resolve, reject) => {
     try {
@@ -15,7 +16,13 @@ exports.findConsumerServiceById = (id) => new Promise(((resolve, reject) => {
 
 
 exports.createConsumerService = (req) => new Promise(((resolve, reject) => {
-    console.log(req.body);
+  
+    if (Validation.validateNullOrEmpty(req.body.name)) {
+        resolve({
+            statuscode: 400,
+            data: 'name is null or empty',
+        });
+    }
     const consumerData = {
         name: req.body.name,
         age: req.body.age,
