@@ -5,7 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha application/**/*.test.js",
-    "play": "node app.js"
+    "play": "node app.js",
+    "generate": "claudia generate-serverless-express-proxy --express-module app",
+    "create": "claudia create --handler lambda.handler --deploy-proxy-api --region us-east-2",
+    "deploy": "npm run test && claudia update --version v1"
   },
   "author": "Bryan Kim Artificio",
   "license": "ISC",
@@ -17,9 +20,15 @@
     "mongoose": "^5.7.1"
   },
   "dependencies": {
+    "aws-serverless-express": "^3.3.6",
     "eslint": "^6.3.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "http": "0.0.0",
+    "mocha": "^6.2.0",
+    "mongoose": "^5.7.1"
   }
 }
